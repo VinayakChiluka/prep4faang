@@ -4,7 +4,33 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Problem Statement:
+ * -------------------
+ * Given an integer array nums, return all the triplets [nums[i], nums[j], nums[k]]
+ * such that i != j, i != k, and j != k, and nums[i] + nums[j] + nums[k] == 0.
+ *
+ * Notice that the solution set must not contain duplicate triplets.
+ *
+ * Constraints:
+ * - 3 <= nums.length <= 3000
+ * - -10^5 <= nums[i] <= 10^5
+ *
+ * Example:
+ * --------
+ * Input: nums = [-1, 0, 1, 2, -1, -4]
+ * Output: [[-1, -1, 2], [-1, 0, 1]]
+ *
+ * Input: nums = [0, 1, 1]
+ * Output: []
+ *
+ * Input: nums = [0, 0, 0]
+ * Output: [[0, 0, 0]]
+ */
+
 public class ThreeSum {
+
+
 
     public List<List<Integer>> solve(int[] nums){
         List<List<Integer>> result = new ArrayList<>();
