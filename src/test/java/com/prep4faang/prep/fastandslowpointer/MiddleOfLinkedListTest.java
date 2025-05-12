@@ -1,6 +1,9 @@
 package com.prep4faang.prep.fastandslowpointer;
 
 import static org.junit.jupiter.api.Assertions.*;
+
+import com.prep4faang.prep.dsa.fastandslow.ListNode;
+import com.prep4faang.prep.dsa.fastandslow.MiddleOfLinkedList;
 import org.junit.jupiter.api.Test;
 
 public class MiddleOfLinkedListTest {
