@@ -29,7 +29,6 @@ public class LinkedListCycleRemover {
 
         ListNode slow = head;
         ListNode fast = head;
-        boolean hasCycle = false;
 
         // Step 1: Detect cycle using Floyd’s Tortoise and Hare algorithm
         while (fast != null && fast.next != null) {
