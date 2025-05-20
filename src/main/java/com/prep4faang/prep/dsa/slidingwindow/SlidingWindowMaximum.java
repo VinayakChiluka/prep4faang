@@ -24,6 +24,38 @@ import java.util.*;
  */
 public class SlidingWindowMaximum {
 
+    public static int[] findMaxInSlidingWindow(int[] nums, int w) {
+        int n = nums.length;
+
+        if(n < 1 || w > n)
+            return new int[0];
+
+        Deque<Integer> deque = new ArrayDeque<>();
+
+        int[] output = new int[n-w+1];
+
+        for(int i=0;i<w;i++){
+            cleanup(i, deque, nums);
+            deque.add(i);
+        }
+        output[0] = nums[deque.getFirst()];
+
+        for(int i=w;i<n;i++){
+            cleanup(i,deque,nums);
+            if(!deque.isEmpty() && deque.getFirst() <= (i - w))
+                deque.removeFirst();
+
+            deque.add(i);
+            output[i-w+1] = nums[deque.getFirst()];
+        }
+        return output;
+    }
+
+    private static void cleanup(int i, Deque<Integer> deque, int[] nums) {
+        while(!deque.isEmpty() && nums[i] >= nums[deque.getLast()] )
+            deque.removeLast();
+    }
+
     /**
      * Returns a list of maximum values from each window of size w.
      *
@@ -32,7 +64,7 @@ public class SlidingWindowMaximum {
      * @return A list of integers representing the maximum of each window.
      */
 
-    public static int[] findMaxSlidingWindow(int[] nums, int w) {
+    public static int[] findMaxSlidingWindow1(int[] nums, int w) {
 
         if (nums.length < w)
             return new int[]{};
